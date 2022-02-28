@@ -1,0 +1,75 @@
+
+* {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+ }
+
+ body {
+     background-color: #ff2800;
+ }
+ 
+ .name {
+     text-align: center;
+     margin-top: 10px;
+     color: #fff;
+     
+ }
+ 
+ label {
+     padding:  12px 12px 12px 0;
+     display: inline-block;
+ }
+
+ #icon-clock, #icon-date, #icon-volume {
+     color: #ff2800;
+ }
+
+ hr {
+     background-color: #ff2800;
+ }
+
+ h5 {
+     color: #ff2800;
+ }
+
+ #tuning-radio {
+     background-color: #fff;
+ }
+
+ select, option {
+     color: #ff2800;
+     font-weight: bold;
+     border-color: #ff2800;
+ }
+
+ .container {
+     border-radius: 5px;
+     background-color: #fff;
+     padding: 60px;
+ }
+ 
+ .col-25 {
+     float: left;
+     width: 25%;
+     margin-top: 6px;
+ }
+ 
+ .col-75 {
+     float: left;
+     width: 75%;
+     margin-top: 6px;
+ }
+ 
+ .row::after {
+     content: "";
+     display: table;
+     clear: both;
+ }
+ 
+ @media screen and (max-width: 600px) {
+     .col-25, .col-75, audio, input[type=submit] {
+         width: 100%;
+         margin-top: 0;
+     }
+ }

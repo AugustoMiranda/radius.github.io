@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <title>RadiusWeb</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Link font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+    <!-- Link favicon.ico -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="name">
+      <h1 style="font-size: 10vw;">Radius</h1>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-25">
+          <i id="icon-clock" class="fas fa-clock    "> Hora</i>
+          <h5 id="hours"></h5>
+          <i id="icon-date" class="fa fa-calendar" aria-hidden="true"> Data</i>
+          <h5 id="date"></h5>
+        </div>
+        <div class="col-75">
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <hr>
+          <h5>Estações:</h5>
+          <i id="icon-volume" class="fas fa-volume-up    "></i>
+          <select name="" id="tuning-radio" onchange="sintonia()">
+            <option value="SINTONIA"></option>
+            <option value="home" data-url="http://127.0.0.1:5500/Projetos-Web/Radius/index.html">Home</option>
+            <option value="ipdeao" data-url="http://127.0.0.1:5500/Projetos-Web/Radius/ipdeao.html">Deus é Amor</option>
+            <option value="ipss" data-url="http://127.0.0.1:5500/Projetos-Web/Radius/ipss.html">SantificaçãoSenhor</option>
+            <option value="rlfm" data-url="http://127.0.0.1:5500/Projetos-Web/Radius/rlfm.html">Rádio Logos FM</option>
+            <option value="rfmg" data-url="http://127.0.0.1:5500/Projetos-Web/Radius/rfmg.html">Rádio FM Gospel</option>
+            <option value="rlg" data-url="http://127.0.0.1:5500/Projetos-Web/Radius/rlg.html">Rádio Lider Gospel</option>
+            <option value="rffm" data-url="http://127.0.0.1:5500/Projetos-Web/Radius/rffm.html">Rádio Feliz FM</option>
+            <option value="rvfm" data-url="http://127.0.0.1:5500/Projetos-Web/Radius/rv.html">Rádio Viva</option>  
+            <option value="nr" data-url="http://127.0.0.1:5500/Projetos-Web/Radius/nr.html">Nossa Rádio</option>
+            <option value="snt" data-url="http://127.0.0.1:5500/Projetos-Web/Radius/snt.html">Sara Nossa Terra</option>
+            <option value="rasp" data-url="http://127.0.0.1:5500/Projetos-Web/Radius/rasp.html">Rede Aleluia SP</option>
+            <option value="rafce" data-url="http://127.0.0.1:5500/Projetos-Web/Radius/rafce.html">Rede Aleluia CE</option>
+            <option value="rarj" data-url="http://127.0.0.1:5500/Projetos-Web/Radius/rarj.html">Rede Aleluia RJ</option>
+           </select>
+          <p>
+            <h5>Rede Aleluia SP</h5>
+          </p>
+          <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+        <audio id="video" controls autoplay></audio>
+    
+    <script>
+      if(Hls.isSupported()) {
+        var video = document.getElementById('video');
+        var hls = new Hls();
+        hls.loadSource('https://34398c.ha.azioncdn.net/primary/radiorasp.sdp/chunklist_7130651d-c287-4809-afc4-1a66e2b0bee9.m3u8');
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED,function() {
+          video.play();
+      });
+     }
+     // hls.js is not supported on platforms that do not have Media Source Extensions (MSE) enabled.
+     // When the browser has built-in HLS support (check using `canPlayType`), we can provide an HLS manifest (i.e. .m3u8 URL) directly to the video element throught the `src` property.
+     // This is using the built-in support of the plain video element, without using hls.js.
+      else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.src = 'https://34398c.ha.azioncdn.net/primary/radiorasp.sdp/chunklist_7130651d-c287-4809-afc4-1a66e2b0bee9.m3u8';
+        video.addEventListener('canplay',function() {
+          video.play();
+        });
+      }
+    </script>
+        </div>
+        <div class="col-75">
+            
+        </div>
+      </div>
+    </div>
+
+    <!-- Link css -->
+    <link rel="stylesheet" href="style.css">  
+    <!-- Optional JavaScript -->
+    <script src="script.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
